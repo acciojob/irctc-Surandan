@@ -79,7 +79,7 @@ public class TicketService {
 
         Ticket savedTicket = ticketRepository.save(ticket);
 
-        for(int i=0;i<bookTicketEntryDto.getNoOfSeats();i++) {
+        for(int i=0;i<bookTicketEntryDto.getPassengerIds().size();i++) {
             Passenger passenger = passengerRepository.findById(bookTicketEntryDto.getPassengerIds().get(i)).get();
             List<Ticket> oldTicketList = passenger.getBookedTickets();
             oldTicketList.add(savedTicket);
