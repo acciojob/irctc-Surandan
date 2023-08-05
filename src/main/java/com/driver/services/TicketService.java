@@ -54,7 +54,8 @@ public class TicketService {
         int availableTickets = trainService.calculateAvailableSeats(seatAvailabilityEntryDto);
 
         if(availableTickets - bookedTickets.size() < bookTicketEntryDto.getNoOfSeats()) {
-            throw new Exception("Less tickets are available");
+//            throw new Exception("Less tickets are available");
+            return null;
         }
 
         String[] stations = train.getRoute().split(",");
@@ -67,7 +68,10 @@ public class TicketService {
             count++;
             if (fromLoc != 0 && toLoc != 0) break;
         }
-        if(!(fromLoc > 0 && fromLoc < toLoc) ) throw new Exception("Invalid stations");
+        if(!(fromLoc > 0 && fromLoc < toLoc) ){
+//            throw new Exception("Invalid stations");
+            return null;
+        }
 
         Ticket ticket = new Ticket();
         ticket.setFromStation(bookTicketEntryDto.getFromStation());
