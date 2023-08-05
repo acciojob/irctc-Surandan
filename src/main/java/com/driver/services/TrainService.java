@@ -76,9 +76,10 @@ public class TrainService {
 //            if((cfromLocVal >= fromLocVal && cfromLocVal <= toLocVal) || (ctoLocVal >= fromLocVal && cfromLocVal <= toLocVal)) {
 //                occupiedSeats +=(ticket.getPassengersList().size());
 //            }
-            if((cfromLocVal < toLocVal) || (ctoLocVal > fromLocVal)) {
-                occupiedSeats +=(ticket.getPassengersList().size());
-            }
+//            if((cfromLocVal < toLocVal) || (ctoLocVal > fromLocVal)) {
+//                occupiedSeats +=(ticket.getPassengersList().size());
+//            }
+            if(cfromLocVal == fromLocVal && ctoLocVal == toLocVal) occupiedSeats+=(ticket.getPassengersList().size());
         }
 
         return totalSeats - occupiedSeats;
